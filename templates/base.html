@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Codedaddies_list</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+   <nav style="background:blue;">
+    <div class="container nav-wrapper">
+        <a href="/" class="brand-logo"  id="links2">Codedaddies List</a>
+        <ul id="nav-mobile" class="right">
+            <li><a href="/" id="links">Home</a></li>
+            <li><a href="/" id="links1">About Us</a></li>
+        </ul>
+    </div>
+</nav>
+    <div class="container">
+   <h1 style="text-align: center"><strong>What do you want to search for on codedaddies list</strong></h1>
+       <div class="row">
+           <div class="col">
+               <div class="center">
+                   <i class="large material-icons" style="color: #EE6E73;">flash_on</i>
+                   <p>Fast craiglist Web scraper</p>
+                   <p class="light center"> scrape here with a beautiful GUI.</p>
+               </div>
+            </div>
+            <div class="col">
+                <div class="center">
+                   <i class="large material-icons" style="color: orange;">camera</i>
+                   <p>Filter your choices</p>
+                <p class="light center"> We built in a functionality to filter based on pricing</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="center">
+                    <i class="large material-icons" style="color: blue;">chrome_reader_mode</i>
+                    <p>A much sexier front-end to craigslist</p>
+                    <p class="light center">We developed an interface for a much fun navigation</p>
+                </div>
+            </div>
+
+       </div>
+    </div>
+    <div class="container">
+        <form action="{% url 'new_search' %}" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="search" name="search">
+        <button class="btn waves-effect waves-light" type="submit" name="action" style="background:blue; color: white;">Submit
+            <i class="material-icons right" style="color: white;">flash_on</i>
+        </button>
+        </form>
+    </div>
+   {% block content %}
+
+   {% endblock content %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
